@@ -11,10 +11,27 @@ public class ChatManager {
     public ChatManager(){
         chats = new ArrayList<>();
     }
-    public void addChat(String sender){
-        Chat chat = new Chat(sender);
+    public void addMessage(String message, String sender,long time){
+        boolean check = false;
+        for (int i = 0; i < chats.size(); i++){
+            if(chats.get(i).getSender().equals(sender)){
+                chats.get(i).addMessage(message,sender,time);
+                check = true;
+            }
+        }
+        if(check){
+            Chat chat =addChat(sender);
+            chat.addMessage(message,sender,time);
+        }
     }
-    public void addChat(String sender, String key){
+    private Chat addChat(String sender){
+        Chat chat = new Chat(sender);
+        chats.add(chat);
+        return chat;
+    }
+    private Chat addChat(String sender, String key){
         Chat chat = new Chat(sender,key);
+        chats.add(chat);
+        return chat;
     }
 }

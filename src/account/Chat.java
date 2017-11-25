@@ -9,9 +9,10 @@ import java.util.List;
 public class Chat {
     private String key;
     private String sender;
-
+    MessageManager messageManager;
     public Chat(String sender){
         this.sender = sender;
+        messageManager = new MessageManager();
     }
     public Chat(String sender, String key){
         this.sender = sender;
@@ -19,5 +20,12 @@ public class Chat {
     }
     public void setKey(String key){
         this.key = key;
+    }
+    public String getSender(){
+        return sender;
+    }
+    public void addMessage(String message, String sender, long time){
+        Message mes = new Message(message, sender, time);
+        messageManager.addMessage(mes);
     }
 }

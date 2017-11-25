@@ -8,13 +8,12 @@ import java.util.List;
  */
 public class Account {
     private String adress;
-    private List<Chat> chats;
+    ChatManager chatManager = new ChatManager();
 
     public Account(String adress){
         this.adress = adress;
-        chats = new ArrayList<Chat>();
     }
-    void addChat(String sender, String data){
-
+    void addChat(String message, String sender, String data, long time){
+        chatManager.addMessage(data,sender,time);
     }
 }
