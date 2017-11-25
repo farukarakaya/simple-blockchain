@@ -1,5 +1,7 @@
 package block;
 
+import java.util.ArrayList;
+
 public class Block {
 
 	private int index;
@@ -7,6 +9,7 @@ public class Block {
 	private String previous_hash;
 	private String hash;
 	private BlockData data;
+	private ArrayList<String> recievers;
 
 	public Block(int index, String previous_hash, long timestamp, String hash, BlockData data) {
 		this.index = index;
@@ -56,4 +59,11 @@ public class Block {
 		this.data = data;
 	}
 
+	public ArrayList<String> getRecievers(){
+		return recievers;
+	}
+
+	public void setRecievers(ArrayList<String> recievers){
+		this.recievers = recievers;
+	}
 }
