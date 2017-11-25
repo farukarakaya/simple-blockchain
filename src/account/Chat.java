@@ -1,5 +1,6 @@
 package account;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -8,5 +9,15 @@ import java.util.List;
 public class Chat {
     private String key;
     private String sender;
-    private List<Message> messages;
+
+    public Chat(String sender){
+        this.sender = sender;
+    }
+    public Chat(String sender, String key){
+        this.sender = sender;
+        this.key = key;
+    }
+    public void setKey(String key){
+        this.key = key;
+    }
 }
